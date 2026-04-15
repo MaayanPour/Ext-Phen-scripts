@@ -14,14 +14,14 @@ library(tibble)
 library(broom)
 library(GeneOverlap)
 library(org.Mm.eg.db)
-setwd('/gpfs/data/yanailab/projects/pourm01/Ext.Phe')
 
 
-# Load the saved Macs anf Fibs data
-Macs = readRDS("Macs.rds")
+# Load the saved Macs and Fibs data
+Macs = readRDS("Macs.rds") 
 Fibs = readRDS("Fibs.rds")
-load("Gavish_Mac_mouse.RData")
-load("Gavish_Fib_mouse.RData")
+# Load states from Gavish et al, converted to mouse genes
+load("../data/Gavish_Mac_mouse.RData")
+load("../data/Gavish_Fib_mouse.RData")
 
 
 # Function to analyze PCs across conditions

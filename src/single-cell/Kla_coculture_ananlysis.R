@@ -316,7 +316,7 @@ dittoHeatmap(srt.cancer_avg,
 #################################################
 
 # Loading table 1, Hotspot modules 
-hotspot = read.csv("modules_table_hotspot.csv", sep="\t", header=TRUE)
+hotspot = read.csv("../data/modules_table_hotspot.csv", sep="\t", header=TRUE)
 modules_hotspot <- hotspot %>%
   select(starts_with("Module.")) %>%
   lapply(na.omit)
@@ -378,6 +378,9 @@ cond_levels <- c(
   "MK1","MK4","MK12","MK24","MK36"
 )
 
+#saving the cancer cells object
+saveRDS(srt.cancer, file = "cancer.srt.rds")
+
 srt.cancer.matrix <- as.matrix(srt.cancer@meta.data[, module_cols])
 srt.modules <- CreateSeuratObject(counts = t(srt.cancer.matrix))
 srt.modules@meta.data <- srt.cancer@meta.data
@@ -414,7 +417,7 @@ dittoHeatmap(
   heatmap.colors = palette,
   annot.by = "orig.ident",
   annotation_colors = list(condition = cols)
-            )
+)
 
 
 
@@ -455,7 +458,7 @@ convertHumanGeneList <- function(x){
 ####################################
 
 # Convert mouse modules to human
-Gavish = read.csv("Gavish_MP_list.csv", sep="\t", header=TRUE)
+Gavish = as.list(readxl::read_xlsx("../data/Gavish_MP_list.xlsx"))
 
 hotspot_modules_human <- lapply(modules_hotspot, function(genes) {
   
@@ -601,6 +604,9 @@ Macs <- RunPCA(Macs, features = VariableFeatures(object = Macs))
 
 Macs$cell_type = "Macs"
 
+#saving the Macrophage object
+saveRDS(Macs, file = "Macs.rds")
+
 #####
 #Fibs
 #####
@@ -621,3 +627,6 @@ Fibs <- ScaleData(Fibs, features = all.genes)
 Fibs <- RunPCA(Fibs, features = VariableFeatures(object = Fibs))
 
 Fibs$cell_type = "Fibs"
+
+#saving the Fibroblast object
+saveRDS(Fibs, file = "Fibs.rds")
