@@ -1,3 +1,18 @@
+library(Seurat)
+library(SeuratObject)
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(data.table)
+library(ggplot2)
+library(broom)
+library(ComplexHeatmap)
+library(RColorBrewer)
+library(nichenetr)
+library(GeneOverlap)
+library(biomaRt)
+library(readxl)
+
 #########################
 # Load data
 #########################
