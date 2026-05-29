@@ -171,7 +171,7 @@ MK12 <- subset_cells(rec1, "CMO309", c("0","1"))
 
 # rec1 annotation
 
-KL1 <- annotate(KL, "KL", "KL", "week 1")
+KL1 <- annotate(KL, "KL1", "KL", "week 1")
 FK1 <- annotate(FK1,    "FK1",    "KL+Fib",  "week 1")
 MK1 <- annotate(MK1,    "MK1",    "KL+Macs", "week 1")
 
