@@ -84,13 +84,13 @@ Kla.srt <- FindVariableFeatures(Kla.srt, selection.method = "vst", nfeatures = 2
 # scale data 
 Kla.srt <- ScaleData(Kla.srt, vars.to.regress = c("nCount_RNA", "percent.mt"))
 # PCA
-Kla.srt <- RunPCA(Kla.srt, features = VariableFeatures(object = Kla_R1))
+Kla.srt <- RunPCA(Kla.srt, features = VariableFeatures(object = Kla.srt))
 
 Kla.srt <- FindNeighbors(Kla.srt, dims = 1:10)
 Kla.srt <- FindClusters(Kla.srt, resolution = 0.5)
 Kla.srt <- RunUMAP(Kla.srt, dims = 1:10,  reduction = "pca")
 
-DimPlot(kcl.srt, reduction = "umap", group.by = 'tag',cols = c('Multiplet' = 'lightgrey',
+DimPlot(Kla.srt, reduction = "umap", group.by = 'tag',cols = c('Multiplet' = 'lightgrey',
                                                                'Unassigned' = 'darkgrey',
                                                                'CMO302'= '#c7e9c0', 'CMO303'= '#74c476','CMO304'= '#248b45', 'CMO305'= '#00441b',
                                                                'CMO306'= '#fb6a4a', 'CMO307'= '#cb1c1d', 'CMO308'= '#a51516','CMO309'= '#67090d', 'CMO312' = '#9ecae1',
