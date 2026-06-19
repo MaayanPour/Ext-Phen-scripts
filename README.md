@@ -1,5 +1,5 @@
 # Adaptive Tumor-Microenvironment Interactions
 
 This repository holds scripts for the manuscript:
-"Adaptive tumor-microenvironment interactions and cancer’s extended phenotype"
+"Cancer cell adaptations along a proliferation–robustness axis drive TME pro-tumor phenotypes"
 
